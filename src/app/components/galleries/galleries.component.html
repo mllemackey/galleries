@@ -1,0 +1,18 @@
+<div class="blog-header">
+    <h1 class="blog-title">All Galleries</h1>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" [(ngModel)]="filter" type="text">
+        <button class="btn my-2 my-sm-0" type="submit">Filtriraj</button>
+    </form>
+</div>
+
+<div class="blog-main">
+
+    <div *ngFor="let gallery of galleries"
+         [galleryRow]="gallery" class="blog-post">
+    </div>
+    <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+    </nav>
+</div><!-- /.blog-main -->
