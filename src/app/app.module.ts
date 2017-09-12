@@ -25,7 +25,8 @@ import { GalleriesRowComponent } from './components/galleries/galleries-row/gall
   imports: [
     BrowserModule,
       AppRoutingModule,
-      FormsModule
+      FormsModule,
+      SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

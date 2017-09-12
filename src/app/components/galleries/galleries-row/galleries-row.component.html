@@ -1,4 +1,6 @@
-<h2 class="blog-post-title">Another blog post</h2>
-<p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
-
-<p>Galleries</p>
+<h2 class="blog-post-title">
+    <a [routerLink]="['/galleries', gallery.id]">
+        {{ gallery.name }}
+    </a>
+</h2>
+<p class="blog-post-meta">{{ gallery.created_at }} by <a href="#">{{ gallery.user_id }}</a></p>
