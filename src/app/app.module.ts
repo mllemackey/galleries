@@ -11,6 +11,8 @@ import { GalleriesComponent } from './components/galleries/galleries.component';
 import { GalleriesDetailsComponent } from './components/galleries/galleries-details/galleries-details.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GalleriesRowComponent } from './components/galleries/galleries-row/galleries-row.component';
+import { AuthorsComponent } from './components/authors/authors.component';
+import { AuthorsDetailsComponent } from './components/authors/authors-details/authors-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { GalleriesRowComponent } from './components/galleries/galleries-row/gall
     GalleriesComponent,
     GalleriesDetailsComponent,
     RegisterComponent,
-    GalleriesRowComponent
+    GalleriesRowComponent,
+    AuthorsComponent,
+    AuthorsDetailsComponent
   ],
   imports: [
     BrowserModule,

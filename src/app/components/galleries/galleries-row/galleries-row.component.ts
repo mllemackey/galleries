@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Gallery} from '../../../shared/gallery.model';
+import {Gallery} from '../../../shared/models/gallery.model';
 
 @Component({
   selector: '[galleryRow]',

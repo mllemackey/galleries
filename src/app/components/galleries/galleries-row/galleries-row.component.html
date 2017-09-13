@@ -1,6 +1,15 @@
-<h2 class="blog-post-title">
-    <a [routerLink]="['/galleries', gallery.id]">
-        {{ gallery.name }}
-    </a>
-</h2>
-<p class="blog-post-meta">{{ gallery.created_at }} by <a href="#">{{ gallery.user_id }}</a></p>
+<div class="blog-post-meta row">
+    <div class="col-sm-4">
+        <img src="{{ gallery.images[0].image_url }}" alt="">
+    </div>
+    <div class="col-sm-8">
+        <h2><a [routerLink]="['/galleries', gallery.id]">
+            {{ gallery.name }}
+        </a></h2>
+
+        Created {{ gallery.created_at }} by
+        <a [routerLink]="['/authors', gallery.author.id]">
+            {{ gallery.author.first_name }} {{ gallery.author.last_name }}
+        </a>
+    </div>
+</div>

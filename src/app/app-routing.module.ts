@@ -5,21 +5,22 @@ import { LoginComponent } from './components/login/login.component';
 import {GalleriesComponent} from './components/galleries/galleries.component';
 import {GalleriesDetailsComponent} from './components/galleries/galleries-details/galleries-details.component';
 import {RegisterComponent} from './components/register/register.component';
+import {AuthorsComponent} from './components/authors/authors.component';
+import {AuthorsDetailsComponent} from './components/authors/authors-details/authors-details.component';
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/galleries',
-        pathMatch: 'full'
+        component: GalleriesComponent,
+    },{
+        path: 'galleries/:id',
+        component: GalleriesDetailsComponent,
     },{
         path: 'galleries',
-        component: GalleriesComponent,
-        children: [
-            {
-                path: ':id',
-                component: GalleriesDetailsComponent
-            }
-        ]
+        redirectTo: ''
+    },{
+        path: 'authors/:id',
+        component: AuthorsDetailsComponent
     },
     {
         path: 'register',
