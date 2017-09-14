@@ -1,14 +1,14 @@
 <div class="blog-header">
     <h1 class="blog-title">Login</h1>
 </div>
-<form>
+<form  #loginForm="ngForm" (ngSubmit)="login(email.value, password.value)">
     <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" name="email">
+        <input #email type="email" class="form-control" id="email" name="email">
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password">
+        <input type="password" #password class="form-control" id="password" name="password">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

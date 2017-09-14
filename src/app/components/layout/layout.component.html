@@ -1,22 +1,32 @@
 <div class="blog-masthead">
-    <div class="container">
-        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+  <div class="container">
 
-        <nav class="nav blog-nav">
-            <span class="navbar-brand mb-0">Galleries</span>
-            <a class="nav-link ml-auto" routerLink="/galleries" routerLinkActive="active">All Galleries</a>
-            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-        </nav>
+    <nav class="nav blog-nav">
+      <span class="navbar-brand mb-0">Galleries</span>
+      <li class="nav-item">
+        <a class="nav-link ml-auto" routerLink="/galleries" routerLinkActive="active">All Galleries</a>
+      </li>
+      <li class="nav-item" *ngIf="!auth.isAuthenticated">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="!auth.isAuthenticated">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+      </li>
 
-    </div>
+      <li class="nav-item" *ngIf="auth.isAuthenticated">
+        <a class="nav-link ml-auto" routerLink="/my-galleries" routerLinkActive="active">My Galleries</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated">
+        <a class="nav-link" routerLink="/create" routerLinkActive="active">Create New Gallery</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated">
+        <a class="nav-link" (click)="auth.logout()">Logout</a>
+      </li>
+
+    </nav>
+
+  </div>
 </div>
 <div class="container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div><!-- /.container -->
-<footer class="blog-footer">
-    <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
-</footer>
