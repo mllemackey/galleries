@@ -7,6 +7,7 @@ import {GalleriesDetailsComponent} from './components/galleries/galleries-detail
 import {RegisterComponent} from './components/register/register.component';
 import {AuthorsComponent} from './components/authors/authors.component';
 import {AuthorsDetailsComponent} from './components/authors/authors-details/authors-details.component';
+import {GalleryResolver} from './shared/resolvers/gallery.resolver';
 
 const appRoutes: Routes = [
     {
@@ -15,6 +16,10 @@ const appRoutes: Routes = [
     },{
         path: 'galleries/:id',
         component: GalleriesDetailsComponent,
+        resolve: {
+            gallery: GalleryResolver
+        }
+
     },{
         path: 'galleries',
         redirectTo: ''

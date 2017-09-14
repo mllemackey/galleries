@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { GalleriesService } from './services/galleries.service';
 import { AuthService } from './services/auth.service';
+import { GalleryResolver } from './resolvers/gallery.resolver';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { AuthService } from './services/auth.service';
   declarations: [],
   providers: [
     GalleriesService,
-    AuthService
+    AuthService,
+    GalleryResolver
   ]
 })
 export class SharedModule { }

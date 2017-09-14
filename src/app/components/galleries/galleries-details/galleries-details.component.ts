@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Gallery} from '../../../shared/models/gallery.model';
 
 @Component({
   selector: 'app-galleries-details',
@@ -6,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleriesDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
+    public gallery: Gallery;
 
   ngOnInit() {
+
+      this.route.data
+          .subscribe((data: {gallery: Gallery}) => {
+          console.log(data);
+              this.gallery = data.gallery;
+          });
+
   }
 
 }

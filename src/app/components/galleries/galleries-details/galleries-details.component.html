@@ -1,3 +1,18 @@
-<p>
-  galleries-details works!
-</p>
+<div class="blog-header">
+    <h1 class="blog-title">{{gallery.name}}</h1>
+</div>
+<div class="gallery-detail">
+    <p>{{ gallery.description }}</p>
+
+    <h2>Author:</h2>
+    <strong>First Name : </strong>{{ gallery.author.first_name}}<br>
+    <strong>Last name : </strong>{{ gallery.author.last_name }}<br>
+    <strong>Email : </strong>{{ gallery.author.email }}<br><br>
+
+    <h2>Images</h2>
+    <div class="row">
+        <div *ngFor="let img of gallery.images" class="col-sm-4">
+            <img data-src="{{img.image_url}}">
+        </div>
+    </div>
+</div>
