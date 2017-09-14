@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -13,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { GalleriesRowComponent } from './components/galleries/galleries-row/galleries-row.component';
 import { AuthorsComponent } from './components/authors/authors.component';
 import { AuthorsDetailsComponent } from './components/authors/authors-details/authors-details.component';
+import { GalleriesFormComponent } from './components/galleries/galleries-form/galleries-form.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { AuthorsDetailsComponent } from './components/authors/authors-details/au
     RegisterComponent,
     GalleriesRowComponent,
     AuthorsComponent,
-    AuthorsDetailsComponent
+    AuthorsDetailsComponent,
+    GalleriesFormComponent
   ],
   imports: [
     BrowserModule,
       AppRoutingModule,
       FormsModule,
-      SharedModule
+      SharedModule,
+      CustomFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
