@@ -61,14 +61,12 @@ export class GalleriesService {
   }
 
 
-  public getGalleryById(id: number)
-    {console.log(id);
+  public getGalleryById(id: number){
         return new Observable((o: Observer<any>) => {
             this.http.get('http://localhost:8000/api/galleries/' + id)
                 .subscribe(
                     (g: any) => {
-                        o.next( new Gallery(g.id, g.name, g.description,
-                            g.images, g.user, g.created_at, g.updated_at));
+                        o.next( g );
                         return o.complete();
                     }
                 );

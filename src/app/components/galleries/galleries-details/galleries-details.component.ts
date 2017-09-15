@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Gallery} from '../../../shared/models/gallery.model';
+import { ActivatedRoute } from '@angular/router';
+import { Gallery } from '../../../shared/models/gallery.model';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-galleries-details',
@@ -8,14 +9,14 @@ import {Gallery} from '../../../shared/models/gallery.model';
 })
 export class GalleriesDetailsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
-    public gallery: Gallery;
+  constructor(private route: ActivatedRoute,
+              private authService: AuthService) { }
+    public gallery: any = {};
 
   ngOnInit() {
 
       this.route.data
-          .subscribe((data: {gallery: Gallery}) => {
-          console.log(data);
+          .subscribe((data: {gallery: any}) => {
               this.gallery = data.gallery;
           });
 
