@@ -16,15 +16,7 @@ export class LoginComponent {
   public login(email, password)
   {
 
-    this.authService.login(email, password)
-      .subscribe(
-        () => {
-          this.router.navigateByUrl('/');
-        },
-        (err: HttpErrorResponse) => {
-          alert(`${err.error.error}`);
-        }
-      );
+    this.authService.login(email, password).subscribe();
   }
 
 

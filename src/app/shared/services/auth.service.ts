@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Author} from '../models/author.model';
-import {Router} from '@angular/router';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Author } from '../models/author.model';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
 
   public isAuthenticated: boolean;
+  public loggedInUser = {};
 
   constructor(private http: HttpClient, private router: Router) {
     this.isAuthenticated = !!window.localStorage.getItem('loginToken');
+    this.loggedInUser = !!window.localStorage.getItem('user');
   }
 
   login(email: string, password: string)
@@ -24,6 +26,8 @@ export class AuthService {
         .subscribe(
           (data: {token: string}) => {
             window.localStorage.setItem('loginToken', data.token);
+            this.isAuthenticated = true;
+            this.router.navigateByUrl('/');
 
             o.next(data.token);
             return o.complete();
@@ -46,14 +50,7 @@ export class AuthService {
       }).subscribe(
           (a: Author) => {
               this.login(author.email, author.password)
-                  .subscribe(
-                      () => {
-                          this.router.navigateByUrl('/');
-                      },
-                      (err: HttpErrorResponse) => {
-                          alert(`${err.error.error}`);
-                      }
-                  );
+                  .subscribe();
               o.next(a);
               return o.complete();
           },
