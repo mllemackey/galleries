@@ -19,7 +19,6 @@ export class RegisterComponent {
 
     public register(author: Author)
     {
-        console.log(author);
         this.authService.registration(author) .subscribe();
     }
 

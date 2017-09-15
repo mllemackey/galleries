@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   public isAuthenticated: boolean;
-  public loggedInUser = {};
+  public loggedInUser;
 
   constructor(private http: HttpClient, private router: Router) {
     this.isAuthenticated = !!window.localStorage.getItem('loginToken');
-    this.loggedInUser = !!window.localStorage.getItem('user');
+    this.loggedInUser = JSON.parse(window.localStorage.getItem('user'));
   }
 
   login(email: string, password: string)
@@ -22,11 +22,14 @@ export class AuthService {
       this.http.post('http://localhost:8000/api/login', {
         'email': email,
         'password': password
-      })
-        .subscribe(
-          (data: {token: string}) => {
+      }).subscribe(
+          (data: {token: string, user}) => {
             window.localStorage.setItem('loginToken', data.token);
+            window.localStorage.setItem('user',  JSON.stringify(data.user));
+
             this.isAuthenticated = true;
+            this.loggedInUser = localStorage.getItem('user');
+
             this.router.navigateByUrl('/');
 
             o.next(data.token);
@@ -40,7 +43,6 @@ export class AuthService {
   }
   registration(author: Author)
   {
-    console.log(author);
     return new Observable((o: Observer<any>) => {
       this.http.post('http://localhost:8000/api/register', {
           'first_name': author.first_name,

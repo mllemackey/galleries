@@ -2,6 +2,7 @@ import {Component, Injector} from '@angular/core';
 import { Gallery } from '../../shared/models/gallery.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { GalleriesService } from '../../shared/services/galleries.service';
+import { FilterPipe } from '../../shared/pipes/filter.pipe';
 
 @Component({
   selector: 'app-galleries',
@@ -11,6 +12,7 @@ export class GalleriesComponent {
 
     public galleries: any[] = [];
     private galleriesService: GalleriesService;
+    public searchTerm = ' ';
 
     constructor(private injector: Injector) {
         this.galleriesService = this.injector.get(GalleriesService);
@@ -24,4 +26,5 @@ export class GalleriesComponent {
         );
 
     }
+
 }

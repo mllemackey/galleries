@@ -1,14 +1,14 @@
 <div class="blog-post-meta row">
     <div class="col-sm-4">
-        <img src="{{ gallery.images[0].image_url }}" alt="">
+        <img src="{{ gallery.images[0] }}" alt="">
     </div>
     <div class="col-sm-8">
         <h2><a [routerLink]="['/galleries', gallery.id]">
             {{ gallery.name }}
         </a></h2>
 
-        Created {{ gallery.created_at }} by
-        <a [routerLink]="['/authors', gallery.author.id]">
+        {{ gallery.created_at | date:'longDate' }}
+      by <a [routerLink]="['/authors', gallery.author.id]">
             {{ gallery.author.first_name }} {{ gallery.author.last_name }}
         </a>
     </div>
